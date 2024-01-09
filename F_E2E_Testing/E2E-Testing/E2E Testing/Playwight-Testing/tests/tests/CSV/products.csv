@@ -1,0 +1,6 @@
+"name","description","price","discoun","stock","category_id","supplier_id"
+"Product 1","Desc 1","100","10","100","Điện tử","SONY"
+"Product 2","Desc 2","200","20","200","Điện lạnh","SAMSUNG"
+"Product 3","Desc 3","300","30","300","Điện lạnh","LG"
+"Product 4","Desc 4","400","40","400","Điện thoại","APPLE"
+"Product 5","Desc 5","500","50","500","Điện tử","SONY"

@@ -1,0 +1,5497 @@
+{
+	"info": {
+		"_postman_id": "21a3456d-636f-4c31-bb85-5d25b6b209a0",
+		"name": "APTECH_TESTER",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26310807"
+	},
+	"item": [
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "Get all categories (200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 200', function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be an array', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('array');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'array',\r",
+									"    items: {\r",
+									"      type: 'object',\r",
+									"      properties: {\r",
+									"        id: { type: 'number' },\r",
+									"        name: { type: 'string' },\r",
+									"        description: { type: ['string', 'null'] },\r",
+									"      },\r",
+									"      required: ['id', 'name', 'description'],\r",
+									"    },\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/categories",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one category by id (200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 200', function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      id: { type: 'number' },\r",
+									"      name: { type: 'string' },\r",
+									"      description: { type: ['string', 'null'] },\r",
+									"    },\r",
+									"    required: ['id', 'name', 'description'],\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5MjU0NzQ4LCJleHAiOjE2ODk1MTM5NDh9.9CRBEB6LA0nwnfzRiGKqtRGT3rVk0ITaD9N2ak5EtJg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/categories/1",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one category by id (410)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 410', function () {\r",
+									"  pm.response.to.have.status(410);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: { \r",
+									"      message: { type: 'array', items: { type: 'string' } },\r",
+									"    },\r",
+									"    required: ['message'],\r",
+									"    additionalProperties: false,\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test('6. Values is correct', function () {\r",
+									"  var json = pm.response.json();\r",
+									"  pm.expect(json.message).to.include('Category not found');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5MjU0NzQ4LCJleHAiOjE2ODk1MTM5NDh9.9CRBEB6LA0nwnfzRiGKqtRGT3rVk0ITaD9N2ak5EtJg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/categories/1000",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"categories",
+								"1000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one category by id (400)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 400', function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      statusCode: { type: 'number' },\r",
+									"      message: { type: 'array', items: { type: 'string' } },\r",
+									"      error: { type: 'string' },\r",
+									"    },\r",
+									"    required: ['statusCode', 'message', 'error'],\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test('6. Values is correct', function () {\r",
+									"  var jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData.statusCode).to.eql(400);\r",
+									"  pm.expect(jsonData.message).to.include('Validation failed (numeric string is expected)');\r",
+									"  pm.expect(jsonData.error).to.eql('Invalid route params');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5MjU0NzQ4LCJleHAiOjE2ODk1MTM5NDh9.9CRBEB6LA0nwnfzRiGKqtRGT3rVk0ITaD9N2ak5EtJg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/categories/a",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"categories",
+								"a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create one category (201)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 201', function () {\r",
+									"  pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      id: { type: 'number' },\r",
+									"      name: { type: 'string' },\r",
+									"      description: { type: ['string', 'null'] },\r",
+									"    },\r",
+									"    required: ['id', 'name', 'description'],\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Category 12356\",\r\n  \"description\": \"Category 1 description\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/categories",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update one category by id (400) (TH_1 id is invalid)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 400', function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      statusCode: { type: 'number' },\r",
+									"      message: { type: 'array', items: { type: 'string' } },\r",
+									"      error: { type: 'string' },\r",
+									"    },\r",
+									"    required: ['statusCode', 'message', 'error'],\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test('6. Values is correct', function () {\r",
+									"  var json = pm.response.json();\r",
+									"  pm.expect(json.statusCode).to.equal(400);\r",
+									"  pm.expect(json.message).to.include('Validation failed (numeric string is expected)');\r",
+									"  pm.expect(json.error).to.equal('Invalid route params');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Category 1\",\r\n  \"description\": \"Category 1 description\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/categories/a",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"categories",
+								"a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update one category by id (400) (TH_2 name is duplicated)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 400', function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      statusCode: { type: 'number' },\r",
+									"      message: { type: 'array', items: { type: 'string' } },\r",
+									"      error: { type: 'string' },\r",
+									"    },\r",
+									"    required: ['statusCode', 'message', 'error'],\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test('6. Values is correct', function () {\r",
+									"  var json = pm.response.json();\r",
+									"  pm.expect(json.statusCode).to.eql(400);\r",
+									"  pm.expect(json.message).to.include('Name must be unique');\r",
+									"  pm.expect(json.error).to.eql('Bad Request');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5MjU0NzQ4LCJleHAiOjE2ODk1MTM5NDh9.9CRBEB6LA0nwnfzRiGKqtRGT3rVk0ITaD9N2ak5EtJg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Category 1\",\r\n  \"description\": \"Category 1 description\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/categories/14",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"categories",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update one category by id (200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 200', function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      id: { type: 'number' },\r",
+									"      name: { type: 'string' },\r",
+									"      description: { type: ['string', 'null'] },\r",
+									"    },\r",
+									"    required: ['id', 'name', 'description'],\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Category 1\",\r\n  \"description\": \"Category 1 description\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/categories/1",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update one category by id (410)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 410', function () {\r",
+									"  pm.response.to.have.status(410);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      statusCode: { type: 'number' },\r",
+									"      message: { type: 'array', items: { type: 'string' } },\r",
+									"      error: { type: 'string' },\r",
+									"    },\r",
+									"    required: ['message'],\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test('6. Values is correct', function () {\r",
+									"  var json = pm.response.json();\r",
+									"  pm.expect(json.statusCode).to.eql(410);\r",
+									"  pm.expect(json.message).to.include('Category not found');\r",
+									"  pm.expect(json.error).to.eql('Bad Request');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Category 123567\",\r\n  \"description\": \"Category 1 description\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/categories/100000",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"categories",
+								"100000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete one category by id (400) (id is invalid)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 400', function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      statusCode: { type: 'number' },\r",
+									"      message: { type: 'array', items: { type: 'string' } },\r",
+									"      error: { type: 'string' },\r",
+									"    },\r",
+									"    required: ['statusCode', 'message', 'error'],\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test('6. Values is correct', function () {\r",
+									"  var jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData.statusCode).to.eql(400);\r",
+									"  pm.expect(jsonData.message).to.include('Validation failed (numeric string is expected)');\r",
+									"  pm.expect(jsonData.error).to.eql('Invalid route params');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/categories/X",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"categories",
+								"X"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete one category by id (410) (id not found)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 410', function () {\r",
+									"  pm.response.to.have.status(410);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      statusCode: { type: 'number' },\r",
+									"      message: { type: 'array', items: { type: 'string' } },\r",
+									"      error: { type: 'string' },\r",
+									"    },\r",
+									"    required: ['statusCode', 'message', 'error'],\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test('6. Values is correct', function () {\r",
+									"  var jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData.statusCode).to.eql(410);\r",
+									"  pm.expect(jsonData.message).to.include('Category not found');\r",
+									"  pm.expect(jsonData.error).to.eql('Bad Request');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/categories/10",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"categories",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete one category by id (200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 200', function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      message: { type: 'string' },\r",
+									"    },\r",
+									"    required: ['message'],\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test('6. Values is correct', function () {\r",
+									"  var jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData.message).to.eql('Category deleted');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/categories/8054",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"categories",
+								"8054"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customers",
+			"item": [
+				{
+					"name": "Get all customers (200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 200', function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be an array', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('array');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'array',\r",
+									"    items: {\r",
+									"      type: 'object',\r",
+									"      properties: {\r",
+									"        id: {type: 'number'},\r",
+									"        firstName: {type: 'string'},\r",
+									"        lastName: {type:'string'},\r",
+									"        email: {type:'string'},\r",
+									"        address: {type:'string'},\r",
+									"        phoneNumber: {type:'string'},\r",
+									"        birthday: {type:'string'}\r",
+									"      },\r",
+									"      required: ['id', 'firstName', 'lastName', 'email', 'address','phoneNumber','birthday'],\r",
+									"    },\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/customers",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create one customers (201)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 200', function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be an array', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('array');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'array',\r",
+									"    items: {\r",
+									"      type: 'object',\r",
+									"      properties: {\r",
+									"        id: {type: 'number'},\r",
+									"        firstName: {type: 'string'},\r",
+									"        lastName: {type:'string'},\r",
+									"        email: {type:'string'},\r",
+									"        address: {type:'string'},\r",
+									"        phoneNumber: {type:'string'},\r",
+									"        birthday: {type:'string'}\r",
+									"      },\r",
+									"      required: ['id', 'firstName', 'lastName', 'email', 'address','phoneNumber','birthday'],\r",
+									"    },\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Doe\",\r\n  \"email\": \"johnnn123456@gmail.com\",\r\n  \"phoneNumber\": \"0905823485\",\r\n  \"address\": \"38 Yen Bai, Da Nang\",\r\n  \"birthday\": \"1940-01-03\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/customers",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one customer by id (200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 200', function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"        id: {type: 'number'},\r",
+									"        firstName: {type: 'string'},\r",
+									"        lastName: {type:'string'},\r",
+									"        email: {type:'string'},\r",
+									"        address: {type:'string'},\r",
+									"        phoneNumber: {type:'string'},\r",
+									"        birthday: {type:'string'}\r",
+									"      },\r",
+									"      required: ['id', 'firstName', 'lastName', 'email', 'address','phoneNumber','birthday'],\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/customers/2003",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"customers",
+								"2003"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one customer by id (400)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 400', function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      statusCode: { type: 'number' },\r",
+									"      message: { type: 'array', items: { type: 'string' } },\r",
+									"      error: { type: 'string' },\r",
+									"    },\r",
+									"    required: ['statusCode', 'message', 'error'],\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test('6. Values is correct', function () {\r",
+									"  var jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData.statusCode).to.eql(400);\r",
+									"  pm.expect(jsonData.message).to.include('Validation failed (numeric string is expected)');\r",
+									"  pm.expect(jsonData.error).to.eql('Invalid route params');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/customers/2Z",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"customers",
+								"2Z"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one customer by id (410) (F_200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 410', function () {\r",
+									"  pm.response.to.have.status(410);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: { \r",
+									"      message: { type: 'array', items: { type: 'string' } },\r",
+									"    },\r",
+									"    required: ['message'],\r",
+									"    additionalProperties: false,\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test('6. Values is correct', function () {\r",
+									"  var json = pm.response.json();\r",
+									"  pm.expect(json.message).to.include('Customer not found');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/customers/299",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"customers",
+								"299"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update one customer by id (200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 200', function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"        id: {type: 'number'},\r",
+									"        firstName: {type: 'string'},\r",
+									"        lastName: {type:'string'},\r",
+									"        email: {type:'string'},\r",
+									"        address: {type:'string'},\r",
+									"        phoneNumber: {type:'string'},\r",
+									"        birthday: {type:'string'}\r",
+									"      },\r",
+									"      required: ['id', 'firstName', 'lastName', 'email', 'address','phoneNumber','birthday'],\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Doe\",\r\n  \"email\": \"john888@gmail.com\",\r\n  \"phoneNumber\": \"0905126456\",\r\n  \"address\": \"38 Yen Bai, Da Nang\",\r\n  \"birthday\": \"1990-01-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/customers/2028",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"customers",
+								"2028"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update one customer by id (400)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 400', function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      statusCode: { type: 'number' },\r",
+									"      message: { type: 'array', items: { type: 'string' } },\r",
+									"      error: { type: 'string' },\r",
+									"    },\r",
+									"    required: ['statusCode', 'message', 'error'],\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test('6. Values is correct', function () {\r",
+									"  var json = pm.response.json();\r",
+									"  pm.expect(json.statusCode).to.equal(400);\r",
+									"  pm.expect(json.message).to.include('Validation failed (numeric string is expected)');\r",
+									"  pm.expect(json.error).to.equal('Invalid route params');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Doe\",\r\n  \"email\": \"john888@gmail.com\",\r\n  \"phoneNumber\": \"0905126456\",\r\n  \"address\": \"38 Yen Bai, Da Nang\",\r\n  \"birthday\": \"1990-01-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/customers/2X",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"customers",
+								"2X"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update one customer by id (410)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 410', function () {\r",
+									"  pm.response.to.have.status(410);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      statusCode: { type: 'number' },\r",
+									"      message: { type: 'array', items: { type: 'string' } },\r",
+									"      error: { type: 'string' },\r",
+									"    },\r",
+									"    required: ['message'],\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test('6. Values is correct', function () {\r",
+									"  var json = pm.response.json();\r",
+									"  pm.expect(json.statusCode).to.eql(410);\r",
+									"  pm.expect(json.message).to.include('Customer not found');\r",
+									"  pm.expect(json.error).to.eql('Bad Request');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Doe\",\r\n  \"email\": \"john888@gmail.com\",\r\n  \"phoneNumber\": \"0905126456\",\r\n  \"address\": \"38 Yen Bai, Da Nang\",\r\n  \"birthday\": \"1990-01-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/customers/113",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"customers",
+								"113"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete one customer by id (200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 200', function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      message: { type: 'string' },\r",
+									"    },\r",
+									"    required: ['message'],\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test('6. Values is correct', function () {\r",
+									"  var jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData.message).to.eql('Customer deleted');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/customers/2104",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"customers",
+								"2104"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete one customer by id (400)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 400', function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      statusCode: { type: 'number' },\r",
+									"      message: { type: 'array', items: { type: 'string' } },\r",
+									"      error: { type: 'string' },\r",
+									"    },\r",
+									"    required: ['statusCode', 'message', 'error'],\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test('6. Values is correct', function () {\r",
+									"  var jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData.statusCode).to.eql(400);\r",
+									"  pm.expect(jsonData.message).to.include('Validation failed (numeric string is expected)');\r",
+									"  pm.expect(jsonData.error).to.eql('Invalid route params');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/customers/210x",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"customers",
+								"210x"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete one customer by id (410) (F_200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 410', function () {\r",
+									"  pm.response.to.have.status(410);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      statusCode: { type: 'number' },\r",
+									"      message: { type: 'array', items: { type: 'string' } },\r",
+									"      error: { type: 'string' },\r",
+									"    },\r",
+									"    required: ['statusCode', 'message', 'error'],\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test('6. Values is correct', function () {\r",
+									"  var jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData.statusCode).to.eql(410);\r",
+									"  pm.expect(jsonData.message).to.include('Customer not found');\r",
+									"  pm.expect(jsonData.error).to.eql('Bad Request');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/customers/21055555555",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"customers",
+								"21055555555"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Employees",
+			"item": [
+				{
+					"name": "Get all employees (200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 200', function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be an array', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('array');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'array',\r",
+									"    items: {\r",
+									"      type: 'object',\r",
+									"      properties: {\r",
+									"        id: {type: 'number' },\r",
+									"        firstName: {type: 'string'},\r",
+									"        lastName: {type: 'string'},\r",
+									"        email: {type: 'string'},\r",
+									"        address: {type: 'string'},\r",
+									"        phoneNumber: {type: 'string' },\r",
+									"        birthday: {type: 'string'},\r",
+									"      },\r",
+									"      required: ['id', 'firstName', 'lastName','email', 'address' ,'phoneNumber' ,'birthday'],\r",
+									"    },\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/employees",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create one employee (201) (F_500)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 201', function () {\r",
+									"  pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"        id: {type: 'number' },\r",
+									"        firstName: {type: 'string'},\r",
+									"        lastName: {type: 'string'},\r",
+									"        email: {type: 'string'},\r",
+									"        address: {type: 'string'},\r",
+									"        phoneNumber: {type: 'string' },\r",
+									"        birthday: {type: 'string'},\r",
+									"      },\r",
+									"      required: ['id', 'firstName', 'lastName','email', 'address' ,'phoneNumber' ,'birthday'],\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Doe\",\r\n  \"email\": \"john@gmail.com\",\r\n  \"phoneNumber\": \"0905123456\",\r\n  \"address\": \"38 Yen Bai, Da Nang\",\r\n  \"birthday\": \"1990-01-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/employees",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one employee by id (200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 200', function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"        id: {type: 'number' },\r",
+									"        firstName: {type: 'string'},\r",
+									"        lastName: {type: 'string'},\r",
+									"        email: {type: 'string'},\r",
+									"        address: {type: 'string'},\r",
+									"        phoneNumber: {type: 'string' },\r",
+									"        birthday: {type: 'string'},\r",
+									"      },\r",
+									"      required: ['id', 'firstName', 'lastName','email', 'address' ,'phoneNumber' ,'birthday'],\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/employees/2",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"employees",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one employee by id (410) (F_200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 410', function () {\r",
+									"  pm.response.to.have.status(410);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: { \r",
+									"      message: { type: 'array', items: { type: 'string' } },\r",
+									"    },\r",
+									"    required: ['message'],\r",
+									"    additionalProperties: false,\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test('6. Values is correct', function () {\r",
+									"  var json = pm.response.json();\r",
+									"  pm.expect(json.message).to.include('Employee not found');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/employees/276",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"employees",
+								"276"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one employee by id (400)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 400', function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      statusCode: { type: 'number' },\r",
+									"      message: { type: 'array', items: { type: 'string' } },\r",
+									"      error: { type: 'string' },\r",
+									"    },\r",
+									"    required: ['statusCode', 'message', 'error'],\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test('6. Values is correct', function () {\r",
+									"  var jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData.statusCode).to.eql(400);\r",
+									"  pm.expect(jsonData.message).to.include('Validation failed (numeric string is expected)');\r",
+									"  pm.expect(jsonData.error).to.eql('Invalid route params');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/employees/2Z",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"employees",
+								"2Z"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update one employee by id (200) (F_500)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 200', function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"        id: {type: 'number' },\r",
+									"        firstName: {type: 'string'},\r",
+									"        lastName: {type: 'string'},\r",
+									"        email: {type: 'string'},\r",
+									"        address: {type: 'string'},\r",
+									"        phoneNumber: {type: 'string' },\r",
+									"        birthday: {type: 'string'},\r",
+									"      },\r",
+									"      required: ['id', 'firstName', 'lastName','email', 'address' ,'phoneNumber' ,'birthday'],\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Doe\",\r\n  \"email\": \"john@gmail.com\",\r\n  \"phoneNumber\": \"0905123456\",\r\n  \"address\": \"38 Yen Bai, Da Nang\",\r\n  \"birthday\": \"1990-01-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/employees/2",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"employees",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update one employee by id (400) TH1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 400', function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      statusCode: { type: 'number' },\r",
+									"      message: { type: 'array', items: { type: 'string' } },\r",
+									"      error: { type: 'string' },\r",
+									"    },\r",
+									"    required: ['statusCode', 'message', 'error'],\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test('6. Values is correct', function () {\r",
+									"  var json = pm.response.json();\r",
+									"  pm.expect(json.statusCode).to.equal(400);\r",
+									"  pm.expect(json.message).to.include('Validation failed (numeric string is expected)');\r",
+									"  pm.expect(json.error).to.equal('Invalid route params');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Doe\",\r\n  \"email\": \"john@gmail.com\",\r\n  \"phoneNumber\": \"0905123456\",\r\n  \"address\": \"38 Yen Bai, Da Nang\",\r\n  \"birthday\": \"1990-01-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/employees/2Z",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"employees",
+								"2Z"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update one employee by id (410) (F_200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 410', function () {\r",
+									"  pm.response.to.have.status(410);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      statusCode: { type: 'number' },\r",
+									"      message: { type: 'array', items: { type: 'string' } },\r",
+									"      error: { type: 'string' },\r",
+									"    },\r",
+									"    required: ['message'],\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test('6. Values is correct', function () {\r",
+									"  var json = pm.response.json();\r",
+									"  pm.expect(json.statusCode).to.eql(410);\r",
+									"  pm.expect(json.message).to.include('Employee not found');\r",
+									"  pm.expect(json.error).to.eql('Bad Request');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"John\",\r\n  \"lastName\": \"Doe\",\r\n  \"email\": \"john@gmail.com\",\r\n  \"phoneNumber\": \"0905123456\",\r\n  \"address\": \"38 Yen Bai, Da Nang\",\r\n  \"birthday\": \"1990-01-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/employees/252",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"employees",
+								"252"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete one employee by id (200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 200', function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      message: { type: 'string' },\r",
+									"    },\r",
+									"    required: ['message'],\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test('6. Values is correct', function () {\r",
+									"  var jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData.message).to.eql('Employee deleted');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/employees/251",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"employees",
+								"251"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete one employee by id (400)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 400', function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      statusCode: { type: 'number' },\r",
+									"      message: { type: 'array', items: { type: 'string' } },\r",
+									"      error: { type: 'string' },\r",
+									"    },\r",
+									"    required: ['statusCode', 'message', 'error'],\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test('6. Values is correct', function () {\r",
+									"  var jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData.statusCode).to.eql(400);\r",
+									"  pm.expect(jsonData.message).to.include('Validation failed (numeric string is expected)');\r",
+									"  pm.expect(jsonData.error).to.eql('Invalid route params');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/employees/25dZ",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"employees",
+								"25dZ"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete one employee by id (410) (F_200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 410', function () {\r",
+									"  pm.response.to.have.status(410);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      statusCode: { type: 'number' },\r",
+									"      message: { type: 'array', items: { type: 'string' } },\r",
+									"      error: { type: 'string' },\r",
+									"    },\r",
+									"    required: ['statusCode', 'message', 'error'],  \r",
+									"    additionalProperties: false,\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test('6. Values is correct', function () {\r",
+									"  var jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData.statusCode).to.eql(410);\r",
+									"  pm.expect(jsonData.message).to.include('Employee not found');\r",
+									"  pm.expect(jsonData.error).to.eql('Bad Request');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/employees/5",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"employees",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Get one order by id (200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 200', function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      id: { type: 'integer' },\r",
+									"      createdDate: { type: 'string', format: 'date-time' },\r",
+									"      shippedDate: { type: 'string', format: 'date-time' },\r",
+									"      status: { type: 'string', enum: ['WAITING', 'COMPLETED', 'CANCELLED'] },\r",
+									"      description: { type: 'string' },\r",
+									"      shippingAddress: { type: 'string' },\r",
+									"      shippingCity: { type: 'string' },\r",
+									"      paymentType: { type: 'string', enum: ['CASH', 'CREDIT CARD'] },\r",
+									"      customerId: { type: 'integer' },\r",
+									"      employeeId: { type: 'integer' },\r",
+									"      customer: {\r",
+									"        type: 'object',\r",
+									"        properties: {\r",
+									"          id: { type: 'integer' },\r",
+									"          firstName: { type: 'string' },\r",
+									"          lastName: { type: 'string' },\r",
+									"          phoneNumber: { type: 'string' },\r",
+									"          address: { type: 'string' },\r",
+									"          birthday: { type: 'string', format: 'date' },\r",
+									"          email: { type: 'string', format: 'email' },\r",
+									"        },\r",
+									"        required: ['id', 'firstName', 'lastName', 'phoneNumber'],\r",
+									"      },\r",
+									"      employee: {\r",
+									"        type: 'object',\r",
+									"        properties: {\r",
+									"          id: { type: 'integer' },\r",
+									"          firstName: { type: 'string' },\r",
+									"          lastName: { type: 'string' },\r",
+									"          phoneNumber: { type: 'string' },\r",
+									"          address: { type: 'string' },\r",
+									"          birthday: { type: 'string', format: 'date' },\r",
+									"          email: { type: 'string', format: 'email' },\r",
+									"        },\r",
+									"        required: ['id', 'firstName', 'lastName', 'phoneNumber'],\r",
+									"      },\r",
+									"      orderDetails: {\r",
+									"        type: 'array',\r",
+									"        items: {\r",
+									"          type: 'object',\r",
+									"          properties: {\r",
+									"            quantity: { type: 'integer', minimum: 0 },\r",
+									"            price: { type: 'number', minimum: 0 },\r",
+									"            discount: { type: 'number', minimum: 0, maximum: 100 },\r",
+									"            product: {\r",
+									"              type: 'object',\r",
+									"              properties: {\r",
+									"                id: { type: 'integer' },\r",
+									"                name: { type: 'string' },\r",
+									"                price: { type: 'number', minimum: 0 },\r",
+									"                discount: { type: 'number', minimum: 0, maximum: 100 },\r",
+									"                stock: { type: 'integer', minimum: 0 },\r",
+									"                description: { type: 'string' },\r",
+									"                categoryId: { type: 'integer' },\r",
+									"                supplierId: { type: 'integer' },\r",
+									"                category: {\r",
+									"                  type: 'object',\r",
+									"                  properties: {\r",
+									"                    id: { type: 'integer' },\r",
+									"                    name: { type: 'string' },\r",
+									"                    description: { type: 'string' },\r",
+									"                  },\r",
+									"                  required: ['id', 'name'],\r",
+									"                },\r",
+									"              },\r",
+									"              required: ['id', 'name', 'price', 'stock', 'categoryId', 'supplierId'],\r",
+									"            },\r",
+									"          },\r",
+									"          required: ['quantity', 'price', 'product'],\r",
+									"        },\r",
+									"      },\r",
+									"    },\r",
+									"    required: ['id', 'createdDate', 'shippedDate', 'status'],\r",
+									"    additionalProperties: false,\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/orders/1",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"orders",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one order by id (400)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 400', function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      statusCode: { type: 'number' },\r",
+									"      message: { type: 'array', items: { type: 'string' } },\r",
+									"      error: { type: 'string' },\r",
+									"    },\r",
+									"    required: ['statusCode', 'message', 'error'],\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});\r",
+									"pm.test('6. Values is correct', function () {\r",
+									"  var jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData.statusCode).to.eql(400);\r",
+									"  pm.expect(jsonData.message).to.include('Validation failed (numeric string is expected)');\r",
+									"  pm.expect(jsonData.error).to.eql('Invalid route params');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/orders/1Z",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"orders",
+								"1Z"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one order by id (410) (F_200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 410', function () {\r",
+									"  pm.response.to.have.status(410);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: { \r",
+									"      message: { type: 'array', items: { type: 'string' } },\r",
+									"    },\r",
+									"    required: ['message'],\r",
+									"    additionalProperties: false,\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test('6. Values is correct', function () {\r",
+									"  var json = pm.response.json();\r",
+									"  pm.expect(json.message).to.include('Employee not found');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/orders/9",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"orders",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all orders (200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 200', function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be an array', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('array');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      id: { type: 'integer' },\r",
+									"      createdDate: { type: 'string', format: 'date-time' },\r",
+									"      shippedDate: { type: 'string', format: 'date-time' },\r",
+									"      status: { type: 'string', enum: ['WAITING', 'COMPLETED', 'CANCELLED'] },\r",
+									"      description: { type: 'string' },\r",
+									"      shippingAddress: { type: 'string' },\r",
+									"      shippingCity: { type: 'string' },\r",
+									"      paymentType: { type: 'string', enum: ['CASH', 'CREDIT CARD'] },\r",
+									"      customerId: { type: 'integer' },\r",
+									"      employeeId: { type: 'integer' },\r",
+									"      customer: {\r",
+									"        type: 'object',\r",
+									"        properties: {\r",
+									"          id: { type: 'integer' },\r",
+									"          firstName: { type: 'string' },\r",
+									"          lastName: { type: 'string' },\r",
+									"          phoneNumber: { type: 'string' },\r",
+									"          address: { type: 'string' },\r",
+									"          birthday: { type: 'string', format: 'date' },\r",
+									"          email: { type: 'string', format: 'email' },\r",
+									"        },\r",
+									"        required: ['id', 'firstName', 'lastName', 'phoneNumber'],\r",
+									"      },\r",
+									"      employee: {\r",
+									"        type: 'object',\r",
+									"        properties: {\r",
+									"          id: { type: 'integer' },\r",
+									"          firstName: { type: 'string' },\r",
+									"          lastName: { type: 'string' },\r",
+									"          phoneNumber: { type: 'string' },\r",
+									"          address: { type: 'string' },\r",
+									"          birthday: { type: 'string', format: 'date' },\r",
+									"          email: { type: 'string', format: 'email' },\r",
+									"        },\r",
+									"        required: ['id', 'firstName', 'lastName', 'phoneNumber'],\r",
+									"      },\r",
+									"      orderDetails: {\r",
+									"        type: 'array',\r",
+									"        items: {\r",
+									"          type: 'object',\r",
+									"          properties: {\r",
+									"            quantity: { type: 'integer', minimum: 0 },\r",
+									"            price: { type: 'number', minimum: 0 },\r",
+									"            discount: { type: 'number', minimum: 0, maximum: 100 },\r",
+									"            product: {\r",
+									"              type: 'object',\r",
+									"              properties: {\r",
+									"                id: { type: 'integer' },\r",
+									"                name: { type: 'string' },\r",
+									"                price: { type: 'number', minimum: 0 },\r",
+									"                discount: { type: 'number', minimum: 0, maximum: 100 },\r",
+									"                stock: { type: 'integer', minimum: 0 },\r",
+									"                description: { type: 'string' },\r",
+									"                categoryId: { type: 'integer' },\r",
+									"                supplierId: { type: 'integer' },\r",
+									"                category: {\r",
+									"                  type: 'object',\r",
+									"                  properties: {\r",
+									"                    id: { type: 'integer' },\r",
+									"                    name: { type: 'string' },\r",
+									"                    description: { type: 'string' },\r",
+									"                  },\r",
+									"                  required: ['id', 'name'],\r",
+									"                },\r",
+									"              },\r",
+									"              required: ['id', 'name', 'price', 'stock', 'categoryId', 'supplierId'],\r",
+									"            },\r",
+									"          },\r",
+									"          required: ['quantity', 'price', 'product'],\r",
+									"        },\r",
+									"      },\r",
+									"    },\r",
+									"    required: ['id', 'createdDate', 'shippedDate', 'status'],\r",
+									"    additionalProperties: false,\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/orders",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create one orders (201)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 201', function () {\r",
+									"  pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      id: { type: 'integer' },\r",
+									"      createdDate: { type: 'string', format: 'date-time' },\r",
+									"      shippedDate: { type: 'string', format: 'date-time' },\r",
+									"      shippingAddress: { type: 'string' },\r",
+									"      shippingCity: { type: 'string' },\r",
+									"      paymentType: { type: 'string', enum: ['CASH', 'CREDIT CARD'] },\r",
+									"      status: { type: 'string', enum: ['WAITING', 'COMPLETED', 'CANCELLED'] },\r",
+									"      description: { type: 'string' },\r",
+									"      customerId: { type: 'integer' },\r",
+									"      employeeId: { type: 'integer' },\r",
+									"      \r",
+									"      orderDetails: {\r",
+									"        type: 'array',\r",
+									"        items: {\r",
+									"          type: 'object',\r",
+									"          properties: {\r",
+									"            quantity: { type: 'integer', minimum: 0 },\r",
+									"            price: { type: 'number', minimum: 0 },\r",
+									"            discount: { type: 'number', minimum: 0, maximum: 100 },\r",
+									"            product: {\r",
+									"              type: 'object',\r",
+									"              properties: {\r",
+									"                id: { type: 'integer' },\r",
+									"                name: { type: 'string' },\r",
+									"                price: { type: 'number', minimum: 0 },\r",
+									"                discount: { type: 'number', minimum: 0, maximum: 100 },\r",
+									"                stock: { type: 'integer', minimum: 0 },\r",
+									"                description: { type: 'string' },\r",
+									"                categoryId: { type: 'integer' },\r",
+									"                supplierId: { type: 'integer' },\r",
+									"                category: {\r",
+									"                  type: 'object',\r",
+									"                  properties: {\r",
+									"                    id: { type: 'integer' },\r",
+									"                    name: { type: 'string' },\r",
+									"                    description: { type: 'string' },\r",
+									"                  },\r",
+									"                  required: ['id', 'name'],\r",
+									"                },\r",
+									"              },\r",
+									"              required: ['id', 'name', 'price', 'stock', 'categoryId', 'supplierId'],\r",
+									"            },\r",
+									"          },\r",
+									"          required: ['quantity', 'price', 'product'],\r",
+									"        },\r",
+									"      },\r",
+									"    },\r",
+									"    required: ['id', 'createdDate', 'shippedDate', 'status'],\r",
+									"    additionalProperties: false,\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"createdDate\": \"2020-01-01\",\r\n  \"shippedDate\": \"2020-01-01\",\r\n  \"shippingAddress\": \"Address 1\",\r\n  \"shippingCity\": \"City 1\",\r\n  \"paymentType\": \"CASH\",\r\n  \"status\": \"WAITING\",\r\n  \"description\": \"Description 1\",\r\n  \"customerId\": 1,\r\n  \"employeeId\": 1,\r\n  \"orderDetails\": [\r\n    {\r\n      \"productId\": 1,\r\n      \"quantity\": 1,\r\n      \"price\": 1,\r\n      \"discount\": 1\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/orders",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update one order by id (400)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 400', function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      id: { type: 'integer' },\r",
+									"      createdDate: { type: 'string', format: 'date-time' },\r",
+									"      shippedDate: { type: 'string', format: 'date-time' },\r",
+									"      shippingAddress: { type: 'string' },\r",
+									"      shippingCity: { type: 'string' },\r",
+									"      paymentType: { type: 'string', enum: ['CASH', 'CREDIT CARD'] },\r",
+									"      status: { type: 'string', enum: ['WAITING', 'COMPLETED', 'CANCELLED'] },\r",
+									"      description: { type: 'string' },\r",
+									"      customerId: { type: 'integer' },\r",
+									"      employeeId: { type: 'integer' },\r",
+									"      \r",
+									"      orderDetails: {\r",
+									"        type: 'array',\r",
+									"        items: {\r",
+									"          type: 'object',\r",
+									"          properties: {\r",
+									"            quantity: { type: 'integer', minimum: 0 },\r",
+									"            price: { type: 'number', minimum: 0 },\r",
+									"            discount: { type: 'number', minimum: 0, maximum: 100 },\r",
+									"            product: {\r",
+									"              type: 'object',\r",
+									"              properties: {\r",
+									"                id: { type: 'integer' },\r",
+									"                name: { type: 'string' },\r",
+									"                price: { type: 'number', minimum: 0 },\r",
+									"                discount: { type: 'number', minimum: 0, maximum: 100 },\r",
+									"                stock: { type: 'integer', minimum: 0 },\r",
+									"                description: { type: 'string' },\r",
+									"                categoryId: { type: 'integer' },\r",
+									"                supplierId: { type: 'integer' },\r",
+									"                category: {\r",
+									"                  type: 'object',\r",
+									"                  properties: {\r",
+									"                    id: { type: 'integer' },\r",
+									"                    name: { type: 'string' },\r",
+									"                    description: { type: 'string' },\r",
+									"                  },\r",
+									"                  required: ['id', 'name'],\r",
+									"                },\r",
+									"              },\r",
+									"              required: ['id', 'name', 'price', 'stock', 'categoryId', 'supplierId'],\r",
+									"            },\r",
+									"          },\r",
+									"          required: ['quantity', 'price', 'product'],\r",
+									"        },\r",
+									"      },\r",
+									"    },\r",
+									"    required: ['id', 'createdDate', 'shippedDate', 'status'],\r",
+									"    additionalProperties: false,\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"createdDate\": \"2020-01-01\",\r\n  \"shippedDate\": \"2020-01-01\",\r\n  \"shippingAddress\": \"Address 1\",\r\n  \"shippingCity\": \"City 1\",\r\n  \"paymentType\": \"CASH\",\r\n  \"status\": \"WAITING\",\r\n  \"description\": \"Description 1\",\r\n  \"customerId\": 1,\r\n  \"employeeId\": 1,\r\n  \"orderDetails\": [\r\n    {\r\n      \"productId\": 1,\r\n      \"quantity\": 1,\r\n      \"price\": 1,\r\n      \"discount\": 1\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/orders/2Z",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"orders",
+								"2Z"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update one order by id (200) (F_500)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 200', function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      id: { type: 'integer' },\r",
+									"      createdDate: { type: 'string', format: 'date-time' },\r",
+									"      shippedDate: { type: 'string', format: 'date-time' },\r",
+									"      shippingAddress: { type: 'string' },\r",
+									"      shippingCity: { type: 'string' },\r",
+									"      paymentType: { type: 'string', enum: ['CASH', 'CREDIT CARD'] },\r",
+									"      status: { type: 'string', enum: ['WAITING', 'COMPLETED', 'CANCELLED'] },\r",
+									"      description: { type: 'string' },\r",
+									"      customerId: { type: 'integer' },\r",
+									"      employeeId: { type: 'integer' },\r",
+									"      \r",
+									"      orderDetails: {\r",
+									"        type: 'array',\r",
+									"        items: {\r",
+									"          type: 'object',\r",
+									"          properties: {\r",
+									"            quantity: { type: 'integer', minimum: 0 },\r",
+									"            price: { type: 'number', minimum: 0 },\r",
+									"            discount: { type: 'number', minimum: 0, maximum: 100 },\r",
+									"            product: {\r",
+									"              type: 'object',\r",
+									"              properties: {\r",
+									"                id: { type: 'integer' },\r",
+									"                name: { type: 'string' },\r",
+									"                price: { type: 'number', minimum: 0 },\r",
+									"                discount: { type: 'number', minimum: 0, maximum: 100 },\r",
+									"                stock: { type: 'integer', minimum: 0 },\r",
+									"                description: { type: 'string' },\r",
+									"                categoryId: { type: 'integer' },\r",
+									"                supplierId: { type: 'integer' },\r",
+									"                category: {\r",
+									"                  type: 'object',\r",
+									"                  properties: {\r",
+									"                    id: { type: 'integer' },\r",
+									"                    name: { type: 'string' },\r",
+									"                    description: { type: 'string' },\r",
+									"                  },\r",
+									"                  required: ['id', 'name'],\r",
+									"                },\r",
+									"              },\r",
+									"              required: ['id', 'name', 'price', 'stock', 'categoryId', 'supplierId'],\r",
+									"            },\r",
+									"          },\r",
+									"          required: ['quantity', 'price', 'product'],\r",
+									"        },\r",
+									"      },\r",
+									"    },\r",
+									"    required: ['id', 'createdDate', 'shippedDate', 'status'],\r",
+									"    additionalProperties: false,\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"createdDate\": \"2020-01-01\",\r\n  \"shippedDate\": \"2020-01-01\",\r\n  \"shippingAddress\": \"Address 1\",\r\n  \"shippingCity\": \"City 1\",\r\n  \"paymentType\": \"CASH\",\r\n  \"status\": \"WAITING\",\r\n  \"description\": \"Description 1\",\r\n  \"customerId\": 1,\r\n  \"employeeId\": 1,\r\n  \"orderDetails\": [\r\n    {\r\n      \"productId\": 1,\r\n      \"quantity\": 1,\r\n      \"price\": 1,\r\n      \"discount\": 1\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/orders/4",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"orders",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update one order by id (410) (F_500)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 410', function () {\r",
+									"  pm.response.to.have.status(410);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      id: { type: 'integer' },\r",
+									"      createdDate: { type: 'string', format: 'date-time' },\r",
+									"      shippedDate: { type: 'string', format: 'date-time' },\r",
+									"      shippingAddress: { type: 'string' },\r",
+									"      shippingCity: { type: 'string' },\r",
+									"      paymentType: { type: 'string', enum: ['CASH', 'CREDIT CARD'] },\r",
+									"      status: { type: 'string', enum: ['WAITING', 'COMPLETED', 'CANCELLED'] },\r",
+									"      description: { type: 'string' },\r",
+									"      customerId: { type: 'integer' },\r",
+									"      employeeId: { type: 'integer' },\r",
+									"      \r",
+									"      orderDetails: {\r",
+									"        type: 'array',\r",
+									"        items: {\r",
+									"          type: 'object',\r",
+									"          properties: {\r",
+									"            quantity: { type: 'integer', minimum: 0 },\r",
+									"            price: { type: 'number', minimum: 0 },\r",
+									"            discount: { type: 'number', minimum: 0, maximum: 100 },\r",
+									"            product: {\r",
+									"              type: 'object',\r",
+									"              properties: {\r",
+									"                id: { type: 'integer' },\r",
+									"                name: { type: 'string' },\r",
+									"                price: { type: 'number', minimum: 0 },\r",
+									"                discount: { type: 'number', minimum: 0, maximum: 100 },\r",
+									"                stock: { type: 'integer', minimum: 0 },\r",
+									"                description: { type: 'string' },\r",
+									"                categoryId: { type: 'integer' },\r",
+									"                supplierId: { type: 'integer' },\r",
+									"                category: {\r",
+									"                  type: 'object',\r",
+									"                  properties: {\r",
+									"                    id: { type: 'integer' },\r",
+									"                    name: { type: 'string' },\r",
+									"                    description: { type: 'string' },\r",
+									"                  },\r",
+									"                  required: ['id', 'name'],\r",
+									"                },\r",
+									"              },\r",
+									"              required: ['id', 'name', 'price', 'stock', 'categoryId', 'supplierId'],\r",
+									"            },\r",
+									"          },\r",
+									"          required: ['quantity', 'price', 'product'],\r",
+									"        },\r",
+									"      },\r",
+									"    },\r",
+									"    required: ['id', 'createdDate', 'shippedDate', 'status'],\r",
+									"    additionalProperties: false,\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"createdDate\": \"2020-01-01\",\r\n  \"shippedDate\": \"2020-01-01\",\r\n  \"shippingAddress\": \"Address 1\",\r\n  \"shippingCity\": \"City 1\",\r\n  \"paymentType\": \"CASH\",\r\n  \"status\": \"WAITING\",\r\n  \"description\": \"Description 1\",\r\n  \"customerId\": 1,\r\n  \"employeeId\": 1,\r\n  \"orderDetails\": [\r\n    {\r\n      \"productId\": 1,\r\n      \"quantity\": 1,\r\n      \"price\": 1,\r\n      \"discount\": 1\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/orders/10",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"orders",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete one order by id (410) (F_200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 410', function () {\r",
+									"  pm.response.to.have.status(410);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"   var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      id: { type: 'integer' },\r",
+									"      createdDate: { type: 'string', format: 'date-time' },\r",
+									"      shippedDate: { type: 'string', format: 'date-time' },\r",
+									"      shippingAddress: { type: 'string' },\r",
+									"      shippingCity: { type: 'string' },\r",
+									"      paymentType: { type: 'string', enum: ['CASH', 'CREDIT CARD'] },\r",
+									"      status: { type: 'string', enum: ['WAITING', 'COMPLETED', 'CANCELLED'] },\r",
+									"      description: { type: 'string' },\r",
+									"      customerId: { type: 'integer' },\r",
+									"      employeeId: { type: 'integer' },\r",
+									"      \r",
+									"      orderDetails: {\r",
+									"        type: 'array',\r",
+									"        items: {\r",
+									"          type: 'object',\r",
+									"          properties: {\r",
+									"            quantity: { type: 'integer', minimum: 0 },\r",
+									"            price: { type: 'number', minimum: 0 },\r",
+									"            discount: { type: 'number', minimum: 0, maximum: 100 },\r",
+									"            product: {\r",
+									"              type: 'object',\r",
+									"              properties: {\r",
+									"                id: { type: 'integer' },\r",
+									"                name: { type: 'string' },\r",
+									"                price: { type: 'number', minimum: 0 },\r",
+									"                discount: { type: 'number', minimum: 0, maximum: 100 },\r",
+									"                stock: { type: 'integer', minimum: 0 },\r",
+									"                description: { type: 'string' },\r",
+									"                categoryId: { type: 'integer' },\r",
+									"                supplierId: { type: 'integer' },\r",
+									"                category: {\r",
+									"                  type: 'object',\r",
+									"                  properties: {\r",
+									"                    id: { type: 'integer' },\r",
+									"                    name: { type: 'string' },\r",
+									"                    description: { type: 'string' },\r",
+									"                  },\r",
+									"                  required: ['id', 'name'],\r",
+									"                },\r",
+									"              },\r",
+									"              required: ['id', 'name', 'price', 'stock', 'categoryId', 'supplierId'],\r",
+									"            },\r",
+									"          },\r",
+									"          required: ['quantity', 'price', 'product'],\r",
+									"        },\r",
+									"      },\r",
+									"    },\r",
+									"    required: ['id', 'createdDate', 'shippedDate', 'status'],\r",
+									"    additionalProperties: false,\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test('6. Values is correct', function () {\r",
+									"  var jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData.statusCode).to.eql(410);\r",
+									"  pm.expect(jsonData.message).to.include('Product not found');\r",
+									"  pm.expect(jsonData.error).to.eql('Bad Request');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/orders/1560000099900",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"orders",
+								"1560000099900"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete one order by id (400)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 400', function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      id: { type: 'integer' },\r",
+									"      createdDate: { type: 'string', format: 'date-time' },\r",
+									"      shippedDate: { type: 'string', format: 'date-time' },\r",
+									"      shippingAddress: { type: 'string' },\r",
+									"      shippingCity: { type: 'string' },\r",
+									"      paymentType: { type: 'string', enum: ['CASH', 'CREDIT CARD'] },\r",
+									"      status: { type: 'string', enum: ['WAITING', 'COMPLETED', 'CANCELLED'] },\r",
+									"      description: { type: 'string' },\r",
+									"      customerId: { type: 'integer' },\r",
+									"      employeeId: { type: 'integer' },\r",
+									"      \r",
+									"      orderDetails: {\r",
+									"        type: 'array',\r",
+									"        items: {\r",
+									"          type: 'object',\r",
+									"          properties: {\r",
+									"            quantity: { type: 'integer', minimum: 0 },\r",
+									"            price: { type: 'number', minimum: 0 },\r",
+									"            discount: { type: 'number', minimum: 0, maximum: 100 },\r",
+									"            product: {\r",
+									"              type: 'object',\r",
+									"              properties: {\r",
+									"                id: { type: 'integer' },\r",
+									"                name: { type: 'string' },\r",
+									"                price: { type: 'number', minimum: 0 },\r",
+									"                discount: { type: 'number', minimum: 0, maximum: 100 },\r",
+									"                stock: { type: 'integer', minimum: 0 },\r",
+									"                description: { type: 'string' },\r",
+									"                categoryId: { type: 'integer' },\r",
+									"                supplierId: { type: 'integer' },\r",
+									"                category: {\r",
+									"                  type: 'object',\r",
+									"                  properties: {\r",
+									"                    id: { type: 'integer' },\r",
+									"                    name: { type: 'string' },\r",
+									"                    description: { type: 'string' },\r",
+									"                  },\r",
+									"                  required: ['id', 'name'],\r",
+									"                },\r",
+									"              },\r",
+									"              required: ['id', 'name', 'price', 'stock', 'categoryId', 'supplierId'],\r",
+									"            },\r",
+									"          },\r",
+									"          required: ['quantity', 'price', 'product'],\r",
+									"        },\r",
+									"      },\r",
+									"    },\r",
+									"    required: ['id', 'createdDate', 'shippedDate', 'status'],\r",
+									"    additionalProperties: false,\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test('6. Values is correct', function () {\r",
+									"  var jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData.statusCode).to.eql(400);\r",
+									"  pm.expect(jsonData.message).to.include('Validation failed (numeric string is expected)');\r",
+									"  pm.expect(jsonData.error).to.eql('Invalid route params');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/orders/109Z",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"orders",
+								"109Z"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete one order by id (200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 200', function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      id: { type: 'integer' },\r",
+									"      createdDate: { type: 'string', format: 'date-time' },\r",
+									"      shippedDate: { type: 'string', format: 'date-time' },\r",
+									"      shippingAddress: { type: 'string' },\r",
+									"      shippingCity: { type: 'string' },\r",
+									"      paymentType: { type: 'string', enum: ['CASH', 'CREDIT CARD'] },\r",
+									"      status: { type: 'string', enum: ['WAITING', 'COMPLETED', 'CANCELLED'] },\r",
+									"      description: { type: 'string' },\r",
+									"      customerId: { type: 'integer' },\r",
+									"      employeeId: { type: 'integer' },\r",
+									"      \r",
+									"      orderDetails: {\r",
+									"        type: 'array',\r",
+									"        items: {\r",
+									"          type: 'object',\r",
+									"          properties: {\r",
+									"            quantity: { type: 'integer', minimum: 0 },\r",
+									"            price: { type: 'number', minimum: 0 },\r",
+									"            discount: { type: 'number', minimum: 0, maximum: 100 },\r",
+									"            product: {\r",
+									"              type: 'object',\r",
+									"              properties: {\r",
+									"                id: { type: 'integer' },\r",
+									"                name: { type: 'string' },\r",
+									"                price: { type: 'number', minimum: 0 },\r",
+									"                discount: { type: 'number', minimum: 0, maximum: 100 },\r",
+									"                stock: { type: 'integer', minimum: 0 },\r",
+									"                description: { type: 'string' },\r",
+									"                categoryId: { type: 'integer' },\r",
+									"                supplierId: { type: 'integer' },\r",
+									"                category: {\r",
+									"                  type: 'object',\r",
+									"                  properties: {\r",
+									"                    id: { type: 'integer' },\r",
+									"                    name: { type: 'string' },\r",
+									"                    description: { type: 'string' },\r",
+									"                  },\r",
+									"                  required: ['id', 'name'],\r",
+									"                },\r",
+									"              },\r",
+									"              required: ['id', 'name', 'price', 'stock', 'categoryId', 'supplierId'],\r",
+									"            },\r",
+									"          },\r",
+									"          required: ['quantity', 'price', 'product'],\r",
+									"        },\r",
+									"      },\r",
+									"    },\r",
+									"    required: ['id', 'createdDate', 'shippedDate', 'status'],\r",
+									"    additionalProperties: false,\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test('6. Values is correct', function () {\r",
+									"  var jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData.message).to.eql('Employee deleted');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/orders/33",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"orders",
+								"33"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Suppliers",
+			"item": [
+				{
+					"name": "Get all suppliers (200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 200', function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be an array', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('array');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'array',\r",
+									"    items: {\r",
+									"      type: 'object',\r",
+									"      properties: {\r",
+									"        id: {type: 'number' },\r",
+									"        name: {type: 'string'},\r",
+									"        email: {type: 'string'},\r",
+									"        address: {type: 'string'},\r",
+									"        phoneNumber: {type: 'string' },\r",
+									"      },\r",
+									"      required: ['id', 'name','email', 'address' ,'phoneNumber'],\r",
+									"    },\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/suppliers",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"suppliers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create one supplier (201) (F_500)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 201', function () {\r",
+									"  pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"        id: {type: 'number' },\r",
+									"        name: {type: 'string'},\r",
+									"        email: {type: 'string'},\r",
+									"        address: {type: 'string'},\r",
+									"        phoneNumber: {type: 'string' },\r",
+									"      },\r",
+									"      required: ['id', 'name','email', 'address' ,'phoneNumber'],\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Sony\",\r\n  \"email\": \"contact@sony.com\",\r\n  \"phoneNumber\": \"0905123456\",\r\n  \"address\": \"38 Suziki, Japan\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/suppliers",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"suppliers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one suppliers by id (200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 200', function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"        id: {type: 'number' },\r",
+									"        name: {type: 'string'},\r",
+									"        email: {type: 'string'},\r",
+									"        address: {type: 'string'},\r",
+									"        phoneNumber: {type: 'string' },\r",
+									"      },\r",
+									"      required: ['id', 'name','email', 'address' ,'phoneNumber'],\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/suppliers/2",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"suppliers",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one suppliers by id (400)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 400', function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      statusCode: { type: 'number' },\r",
+									"      message: { type: 'array', items: { type: 'string' } },\r",
+									"      error: { type: 'string' },\r",
+									"    },\r",
+									"    required: ['statusCode', 'message', 'error'],\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test('6. Values is correct', function () {\r",
+									"  var jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData.statusCode).to.eql(400);\r",
+									"  pm.expect(jsonData.message).to.include('Validation failed (numeric string is expected)');\r",
+									"  pm.expect(jsonData.error).to.eql('Invalid route params');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/suppliers/2aa",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"suppliers",
+								"2aa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one suppliers by id (410) (F_200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 410', function () {\r",
+									"  pm.response.to.have.status(410);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: { \r",
+									"      message: { type: 'array', items: { type: 'string' } },\r",
+									"    },\r",
+									"    required: ['message'],\r",
+									"    additionalProperties: false,\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test('6. Values is correct', function () {\r",
+									"  var json = pm.response.json();\r",
+									"  pm.expect(json.message).to.include('Supplier not found');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/suppliers/7",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"suppliers",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update one supplier by id (200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 200', function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"        id: {type: 'number' },\r",
+									"        name: {type: 'string'},\r",
+									"        email: {type: 'string'},\r",
+									"        address: {type: 'string'},\r",
+									"        phoneNumber: {type: 'string' },\r",
+									"      },\r",
+									"      required: ['id', 'name','email', 'address' ,'phoneNumber'],\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Sony\",\r\n  \"email\": \"contactt1@sony.com\",\r\n  \"phoneNumber\": \"0905123456\",\r\n  \"address\": \"38 Suziki, Japan\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/suppliers/1",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"suppliers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update one supplier by id (400)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 400', function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      statusCode: { type: 'number' },\r",
+									"      message: { type: 'array', items: { type: 'string' } },\r",
+									"      error: { type: 'string' },\r",
+									"    },\r",
+									"    required: ['statusCode', 'message', 'error'],\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test('6. Values is correct', function () {\r",
+									"  var json = pm.response.json();\r",
+									"  pm.expect(json.statusCode).to.equal(400);\r",
+									"  pm.expect(json.message).to.include('Validation failed (numeric string is expected)');\r",
+									"  pm.expect(json.error).to.equal('Invalid route params');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Sony\",\r\n  \"email\": \"contactt1@sony.com\",\r\n  \"phoneNumber\": \"0905123456\",\r\n  \"address\": \"38 Suziki, Japan\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/suppliers/1",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"suppliers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update one supplier by id (410)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 410', function () {\r",
+									"  pm.response.to.have.status(410);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      statusCode: { type: 'number' },\r",
+									"      message: { type: 'array', items: { type: 'string' } },\r",
+									"      error: { type: 'string' },\r",
+									"    },\r",
+									"    required: ['message'],\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test('6. Values is correct', function () {\r",
+									"  var json = pm.response.json();\r",
+									"  pm.expect(json.statusCode).to.eql(410);\r",
+									"  pm.expect(json.message).to.include('Supplier not found');\r",
+									"  pm.expect(json.error).to.eql('Bad Request');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Sony\",\r\n  \"email\": \"contactt1@sony.com\",\r\n  \"phoneNumber\": \"0905123456\",\r\n  \"address\": \"38 Suziki, Japan\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/suppliers/7",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"suppliers",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete one supplier by id (200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 200', function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      message: { type: 'string' },\r",
+									"    },\r",
+									"    required: ['message'],\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test('6. Values is correct', function () {\r",
+									"  var jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData.message).to.eql('Supplier deleted');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/suppliers/2652",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"suppliers",
+								"2652"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete one supplier by id (400)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 400', function () {\r",
+									"  pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      statusCode: { type: 'number' },\r",
+									"      message: { type: 'array', items: { type: 'string' } },\r",
+									"      error: { type: 'string' },\r",
+									"    },\r",
+									"    required: ['statusCode', 'message', 'error'],\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test('6. Values is correct', function () {\r",
+									"  var jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData.statusCode).to.eql(400);\r",
+									"  pm.expect(jsonData.message).to.include('Validation failed (numeric string is expected)');\r",
+									"  pm.expect(jsonData.error).to.eql('Invalid route params');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/suppliers/2652Z",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"suppliers",
+								"2652Z"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete one supplier by id (410) (F_200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 410', function () {\r",
+									"  pm.response.to.have.status(410);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be a object', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('object');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'object',\r",
+									"    properties: {\r",
+									"      statusCode: { type: 'number' },\r",
+									"      message: { type: 'array', items: { type: 'string' } },\r",
+									"      error: { type: 'string' },\r",
+									"    },\r",
+									"    required: ['statusCode', 'message', 'error'],  \r",
+									"    additionalProperties: false,\r",
+									"  };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"});\r",
+									"\r",
+									"pm.test('6. Values is correct', function () {\r",
+									"  var jsonData = pm.response.json();\r",
+									"  pm.expect(jsonData.statusCode).to.eql(410);\r",
+									"  pm.expect(jsonData.message).to.include('Supplier not found');\r",
+									"  pm.expect(jsonData.error).to.eql('Bad Request');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/suppliers/777777",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"suppliers",
+								"777777"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get all products (200)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('1. Status code is 200', function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('2. Response time is less than 200ms', function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test('3. Response must be valid and have a body', function () {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test('4. Json must be an array', () => {\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.an('array');\r",
+									"});\r",
+									"\r",
+									"pm.test('5. Schema is valid', () => {\r",
+									"  var schema = {\r",
+									"    type: 'array',\r",
+									"    items: {\r",
+									"      type: 'object',\r",
+									"      properties: {\r",
+									"    \r",
+									"        id: {type: 'number' },\r",
+									"        name: {type: 'string'},\r",
+									"        description: {type:\t'string'},\r",
+									"        price: {type: 'number'},\r",
+									"        discount: {type: 'number'},\r",
+									"        stock: {type: 'number'},\r",
+									"        categoryId: {type:\t'number'},\r",
+									"        supplierId:\t{type: 'number'},\r",
+									"\r",
+									"        required: ['id', 'name', 'description','price', 'discount' ,'stock' ,'categoryId', 'supplierId'],\r",
+									"\r",
+									"        category: {\r",
+									"                type: 'object',\r",
+									"                properties: {\r",
+									"                id: { type: 'integer' },\r",
+									"                name: { type: 'string' },\r",
+									"                description: { type: 'string' },\r",
+									"                },\r",
+									"        required: ['id', 'name', 'description'],\r",
+									"        },\r",
+									"        supplier:\t{\r",
+									"                type: 'object',\r",
+									"                properties: {\r",
+									"                id: {type: 'number' },\r",
+									"                name: {type: 'string'},\r",
+									"                email: {type: 'string'},\r",
+									"                address: {type: 'string'},\r",
+									"                phoneNumber: {type: 'string' },\r",
+									"                },\r",
+									"        required: ['id', 'name', 'email','address', 'phoneNumber' ,]\r",
+									"        \r",
+									"        },\r",
+									"    },  \r",
+									"    },\r",
+									"    };\r",
+									"\r",
+									"  const responseJson = pm.response.json();\r",
+									"  pm.expect(responseJson).to.be.jsonSchema(schema);\r",
+									"  });"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/products",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create one product (201)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Product 1\",\r\n  \"description\": \"Product 1 description\",\r\n  \"price\": 100,\r\n  \"discount\": 10,\r\n  \"stock\": 100,\r\n  \"categoryId\": 1,\r\n  \"supplierId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/products",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one product by id (200)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/products/1",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one product by id (400)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/products/1Z",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"products",
+								"1Z"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one product by id (410) (F_200)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/products/18",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"products",
+								"18"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update one products by id (200)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Product 1\",\r\n  \"description\": \"Product 1 description\",\r\n  \"price\": 100,\r\n  \"discount\": 10,\r\n  \"stock\": 100,\r\n  \"categoryId\": 1,\r\n  \"supplierId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/products/1",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update one products by id (400)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Product 1\",\r\n  \"description\": \"Product 1 description\",\r\n  \"price\": 100,\r\n  \"discount\": 10,\r\n  \"stock\": 100,\r\n  \"categoryId\": 1,\r\n  \"supplierId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/products/1Z",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"products",
+								"1Z"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update one products by id (410) (F_200)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Product 1\",\r\n  \"description\": \"Product 1 description\",\r\n  \"price\": 100,\r\n  \"discount\": 10,\r\n  \"stock\": 100,\r\n  \"categoryId\": 1,\r\n  \"supplierId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/products/18",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"products",
+								"18"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete one product by id (400)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/products/2Z",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"products",
+								"2Z"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete one product by id (200)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/products/1863",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"products",
+								"1863"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete one product by id (410) (F_200)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0dW5nbnRAc29mdGVjaC52biIsImVtYWlsIjoidHVuZ250QHNvZnRlY2gudm4iLCJzdWIiOjEsImFwcGxpY2F0aW9uIjoiT25saW5lIFNob3AgLSBBUEkiLCJyb2xlcyI6W3siaWQiOjEsIm5hbWUiOiJBZG1pbmlzdHJhdG9ycyJ9LHsiaWQiOjIsIm5hbWUiOiJNYW5hZ2VycyJ9XSwiaWF0IjoxNjg5NjE2MjY2LCJleHAiOjE2ODk4NzU0NjZ9.jc2Q-rTn8Arokr7Ms2y3LPdla0q2l4CAc9tqgu9GqtQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://server.aptech.io/online-shop/products/1863464444364",
+							"protocol": "https",
+							"host": [
+								"server",
+								"aptech",
+								"io"
+							],
+							"path": [
+								"online-shop",
+								"products",
+								"1863464444364"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"tungnt@softech.vn\",\r\n  \"password\": \"123456789\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://server.aptech.io/auth/login",
+					"protocol": "https",
+					"host": [
+						"server",
+						"aptech",
+						"io"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

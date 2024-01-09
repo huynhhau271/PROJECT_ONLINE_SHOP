@@ -1,0 +1,484 @@
+{
+  "id": "e2eb01e6-83bf-42a8-b7c9-0fd629792012",
+  "version": "2.0",
+  "name": "TRAINING",
+  "url": "https://os-admin.aptech.io",
+  "tests": [{
+    "id": "18d2c04f-830b-4b98-979d-a9dfad5c241d",
+    "name": "Example 08 - Times",
+    "commands": [{
+      "id": "598214a6-8207-4dee-ba59-58c4e87eb465",
+      "comment": "",
+      "command": "store",
+      "target": "10",
+      "targets": [],
+      "value": "count"
+    }, {
+      "id": "14c68905-ec3f-4862-8b63-a507ae9f7b9f",
+      "comment": "",
+      "command": "times",
+      "target": "${count}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "855f19ca-ab29-4250-8870-1acba184e0cc",
+      "comment": "",
+      "command": "echo",
+      "target": "Hello",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6d23102c-5f3e-4ac5-9ff2-3dea760b9c63",
+      "comment": "",
+      "command": "echo",
+      "target": "World",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0b1966cb-5f43-4bf9-a333-2ae498779b80",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "db249328-4dac-431e-894a-e94d19faca6d",
+    "name": "Example 04 - DO .. REPEAT IF",
+    "commands": [{
+      "id": "78e62cd1-888a-4efa-aafd-3f068d68ff6d",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return 1",
+      "targets": [],
+      "value": "count"
+    }, {
+      "id": "dfa898db-ec77-4c83-9cd1-30cb52c04091",
+      "comment": "",
+      "command": "do",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "94a75082-3fc8-44f9-81f5-b437cf519a5d",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return ${count} + 1",
+      "targets": [],
+      "value": "count"
+    }, {
+      "id": "d4060917-c184-484b-8c72-f01003adcf4f",
+      "comment": "",
+      "command": "echo",
+      "target": "${count}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "82868a52-2627-4a56-9941-cdb5daae5803",
+      "comment": "",
+      "command": "echo",
+      "target": "Hello",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "479f0fae-be00-445f-818e-168a06977235",
+      "comment": "",
+      "command": "repeatIf",
+      "target": "${count} < 5",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "48c37380-ff53-47b5-b9de-a496b1191e55",
+    "name": "Example 01 - IF ELSE",
+    "commands": [{
+      "id": "1bee8d94-2e84-4e95-b8f6-36e73ec10d09",
+      "comment": "",
+      "command": "store",
+      "target": "5",
+      "targets": [],
+      "value": "count"
+    }, {
+      "id": "83d06983-0b46-46ba-a4e3-4926bd62ee5a",
+      "comment": "",
+      "command": "echo",
+      "target": "${count}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a9696018-f897-41ef-89c9-e2a28e9b313a",
+      "comment": "",
+      "command": "if",
+      "target": "${count} > 9 ",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6958ca74-be28-4216-8268-5ea7e30a5263",
+      "comment": "",
+      "command": "echo",
+      "target": "Số lớn",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "33b987ce-0bb2-441e-8a7e-ddc44b5b9db9",
+      "comment": "",
+      "command": "else",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fff0a7ef-2bcc-42bb-bc74-73da4f41fd02",
+      "comment": "",
+      "command": "echo",
+      "target": "Số bé",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ef80f2e5-56f4-4c52-82a3-c5ee366169b1",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "7ea6c96f-f780-439a-92b0-d35e9c3e9303",
+    "name": "Example 05 - For Each",
+    "commands": [{
+      "id": "745b09b8-c011-4599-b412-de26c738bc1b",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return [   {     \"username\": \"tungnt@softech.vn\",     \"password\": \"123456789\"   },   {     \"username\": \"tuanna@softech.vn\",     \"password\": \"987654321\"   },   {     \"username\": \"tuyetta@softech.vn\",     \"password\": \"987654321\"   },   {     \"username\": \"thutt@softech.vn\",     \"password\": \"987654321\"   } ]",
+      "targets": [],
+      "value": "users"
+    }, {
+      "id": "30a610b1-5c04-440e-b169-e4c127a2d15b",
+      "comment": "",
+      "command": "forEach",
+      "target": "users",
+      "targets": [],
+      "value": "user"
+    }, {
+      "id": "9f2ad7d1-8e45-4f00-ab1e-2167936515a6",
+      "comment": "",
+      "command": "open",
+      "target": "login?returnUrl=/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "59204a64-abfa-4e92-a2cf-88bb0bae93d9",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return ${user}.username",
+      "targets": [],
+      "value": "username"
+    }, {
+      "id": "ebdbfa9a-547e-41d3-8256-3f9c8de22a7b",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return ${user}.password",
+      "targets": [],
+      "value": "password"
+    }, {
+      "id": "61ade04e-e344-408f-8d00-cd8be8ce5635",
+      "comment": "",
+      "command": "type",
+      "target": "id=login-form_username",
+      "targets": [
+        ["id=login-form_username", "id"],
+        ["css=#login-form_username", "css:finder"],
+        ["xpath=//input[@id='login-form_username']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${username}"
+    }, {
+      "id": "5b9ec195-87b3-4f4b-a39c-c5e62bea8f82",
+      "comment": "",
+      "command": "type",
+      "target": "id=login-form_password",
+      "targets": [
+        ["id=login-form_password", "id"],
+        ["css=#login-form_password", "css:finder"],
+        ["xpath=//input[@id='login-form_password']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div[2]/div[2]/div/div/span/input", "xpath:idRelative"],
+        ["xpath=//span/input", "xpath:position"]
+      ],
+      "value": "${password}"
+    }, {
+      "id": "56654069-d4ce-4ef1-9bd1-4fd2f79c95a5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ant-btn",
+      "targets": [
+        ["css=.ant-btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='login-form']/div[4]/div/div/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "04a076f6-fc7b-4f5e-b453-6d7cfbc4f1e9",
+      "comment": "",
+      "command": "echo",
+      "target": "${username}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9df63233-e24d-48cd-86be-76b80174908f",
+      "comment": "",
+      "command": "echo",
+      "target": "${password}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8be55a25-f8ed-4ddb-a95b-1ea76c64121e",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "c1e93f3f-7242-4eea-834d-a8eec861e157",
+    "name": "Example 02 - IF ELSE IF",
+    "commands": [{
+      "id": "c66f807f-1b6a-4dd8-abd2-ba64cd4be150",
+      "comment": "",
+      "command": "store",
+      "target": "8.5",
+      "targets": [],
+      "value": "score"
+    }, {
+      "id": "85ace389-3914-4eaa-a154-8916dfe8c591",
+      "comment": "",
+      "command": "if",
+      "target": "${score} >= 9",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1bf88248-86eb-4d04-b20d-222529ab51db",
+      "comment": "",
+      "command": "echo",
+      "target": "Xuất sắc",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "24f1fdbe-0fe5-4b88-ae9f-a3ad24dcc2f6",
+      "comment": "",
+      "command": "elseIf",
+      "target": "${score} >= 8",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1e22a423-e2f1-4d78-9975-684e0c45f390",
+      "comment": "",
+      "command": "echo",
+      "target": "Giỏi",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f5138689-a46d-4587-a8e6-d755d4cc7aa3",
+      "comment": "",
+      "command": "else",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b945b1f0-1f7e-4673-b56c-3d048900491d",
+      "comment": "",
+      "command": "echo",
+      "target": "Khá, TB, Yếu Kém",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ed9ac722-a5d8-4d67-a25f-0e509a680e3e",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "b159c21a-3afb-42e9-98e1-b70e8e75a070",
+    "name": "Example 03 - WHILE .. END",
+    "commands": [{
+      "id": "0227f620-d471-4d14-8c21-169cca629c6d",
+      "comment": "",
+      "command": "store",
+      "target": "1",
+      "targets": [],
+      "value": "count"
+    }, {
+      "id": "5d637aa9-cc8b-4cba-be77-2bdcdd21b541",
+      "comment": "",
+      "command": "while",
+      "target": "${count}  <= 10",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "68d6e16e-a7e1-4c5e-9247-e37b3263086e",
+      "comment": "",
+      "command": "echo",
+      "target": "${count}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "31529112-cb5f-4700-bea6-a917cfe97ba7",
+      "comment": "",
+      "command": "store",
+      "target": "${count} + 1",
+      "targets": [],
+      "value": "count"
+    }, {
+      "id": "26a8ce4b-a738-461f-a722-238b3f9ea36a",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "f972caf0-34a0-4350-a580-8dca75bcf9f1",
+    "name": "Example 07 - For Each - ADD 5 Categories",
+    "commands": [{
+      "id": "83fab29e-4b48-43d4-beba-92b3fce42a0d",
+      "comment": "",
+      "command": "open",
+      "target": "/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bbcfcbde-9f86-4f27-b2ea-951789900ee3",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.mb-3:nth-child(1) > .form-control", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[2]/div/div/div/div/div[2]/div[2]/form/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "tungnt@softech.vn"
+    }, {
+      "id": "56e6680a-0378-4f1f-ab8d-701cc3dcf96f",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.mb-3:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[2]/div/div/div/div/div[2]/div[2]/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "123456789"
+    }, {
+      "id": "fa1330b6-b4c8-4039-941f-271404b17fd9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='root']/div[2]/div/div/div/div/div[2]/div[2]/form/div[4]/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Log In')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b6277555-2ffe-49fc-bf68-3528447085b7",
+      "comment": "",
+      "command": "open",
+      "target": "/online-shop/data-management/categories",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b55ea337-0235-4f7e-8ea2-220235f60b67",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return [   {     \"name\": \"SELECNIUM - Category 1\",     \"description\": \"123456789\"   },   {     \"name\": \"SELECNIUM - Category 2\",     \"description\": \"123456789\"   },   {     \"name\": \"SELECNIUM - Category 3\",     \"description\": \"123456789\"   },   {     \"name\": \"SELECNIUM - Category 4\",     \"description\": \"123456789\"   },   {     \"name\": \"SELECNIUM - Category 5\",     \"description\": \"123456789\"   } ]",
+      "targets": [],
+      "value": "categories"
+    }, {
+      "id": "f650f97c-a466-411f-bfba-ce2f0e6b5cd6",
+      "comment": "",
+      "command": "forEach",
+      "target": "categories",
+      "targets": [],
+      "value": "category"
+    }, {
+      "id": "23672f9c-7c61-45a3-8e9a-b3719209f160",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return ${category}.name",
+      "targets": [],
+      "value": "name"
+    }, {
+      "id": "9c25167d-cf1d-45a4-9079-180a1fca3f1e",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return ${category}.description",
+      "targets": [],
+      "value": "description"
+    }, {
+      "id": "e9c2a1ca-cdb3-4e07-b6ed-221e24304fc7",
+      "comment": "",
+      "command": "type",
+      "target": "id=create-form_name",
+      "targets": [
+        ["id=create-form_name", "id"],
+        ["css=#create-form_name", "css:finder"],
+        ["xpath=//input[@id='create-form_name']", "xpath:attributes"],
+        ["xpath=//form[@id='create-form']/div/div/div[2]/div/div/span/input", "xpath:idRelative"],
+        ["xpath=//span/input", "xpath:position"]
+      ],
+      "value": "${name}"
+    }, {
+      "id": "4d6b9f65-b999-413c-b686-0c905b633a27",
+      "comment": "",
+      "command": "type",
+      "target": "id=create-form_description",
+      "targets": [
+        ["id=create-form_description", "id"],
+        ["css=#create-form_description", "css:finder"],
+        ["xpath=//input[@id='create-form_description']", "xpath:attributes"],
+        ["xpath=//form[@id='create-form']/div[2]/div/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "${description}"
+    }, {
+      "id": "c1ecb633-ba0b-4e8d-94b1-6ac0243bad6e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.ant-btn-primary",
+      "targets": [
+        ["css=.ant-btn-primary", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//form[@id='create-form']/div[3]/div/div/div/div/button", "xpath:idRelative"],
+        ["xpath=//div[3]/div/div/div/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Save')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "337b6925-4e19-4dfe-9701-26ebb9e0c6df",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "8d7fa6f2-2040-4747-95d3-12b3846d77dc",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["18d2c04f-830b-4b98-979d-a9dfad5c241d"]
+  }],
+  "urls": ["https://ecommerce.aptech.io/", "https://aptech-tester.web.app/", "https://os-admin.aptech.io/"],
+  "plugins": []
+}
